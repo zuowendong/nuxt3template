@@ -1,0 +1,59 @@
+ .driver-popover.fox-theme {
+   background: linear-gradient(90deg, #533db5 0%, #7157cf 100%);
+   color: #fff;
+ }
+
+ .driver-popover.fox-theme .driver-popover-arrow-side-left.driver-popover-arrow {
+   border-left-color: #7157cf;
+ }
+
+ .driver-popover.fox-theme .driver-popover-arrow-side-right.driver-popover-arrow {
+   border-right-color: #7157cf;
+ }
+
+ .driver-popover.fox-theme .driver-popover-arrow-side-top.driver-popover-arrow {
+   border-top-color: #7157cf;
+ }
+
+ .driver-popover.fox-theme .driver-popover-arrow-side-bottom.driver-popover-arrow {
+   border-bottom-color: #7157cf;
+ }
+
+ .driver-popover.fox-theme .driver-popover-title {
+   color: #fff;
+   font-family: "PingFang SC";
+   font-size: 14PX;
+   font-weight: 300;
+ }
+
+ .driver-popover.fox-theme .driver-popover-footer {
+   position: absolute;
+   right: 0;
+   bottom: -5PX;
+   transform: translateY(100%);
+   width: 100%;
+   margin-top: 15PX;
+   text-align: right;
+   zoom: 1;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+ }
+
+ .driver-popover.fox-theme .driver-popover-next-btn {
+   border-radius: 13PX;
+   border: 2PX solid #533db5;
+   background: linear-gradient(90deg,
+       rgba(83, 61, 181, 0.5) 0%,
+       rgba(113, 87, 207, 0.5) 100%);
+   color: #fff;
+   font-family: "Kingnam Bobo";
+   font-size: 14PX;
+   font-weight: 400;
+   text-shadow: none;
+   padding: 4PX 10PX;
+   display: flex !important;
+   align-items: center;
+   justify-content: center;
+   gap: 4PX;
+ }

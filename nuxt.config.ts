@@ -2,7 +2,7 @@ import path from "path";
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  ssr: true,
+  ssr: false,
   imports: {
     autoImport: false,
   },
@@ -25,6 +25,8 @@ export default defineNuxtConfig({
     "~/assets/font/OPPOSans-B/result.css",
     "~/assets/font/OPPOSans-M/result.css",
     "~/assets/font/OPPOSans-R/result.css",
+    'driver.js/dist/driver.css',
+    '~/assets/css/fox-driver.scss'
   ],
 
   modules: ["@nuxtjs/tailwindcss", "@vueuse/nuxt", "@vant/nuxt", "@nuxt/image"],
