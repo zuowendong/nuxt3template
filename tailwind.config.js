@@ -22,5 +22,10 @@ export default {
       },
     },
   },
-  plugins: [require("daisyui")],
+  plugins: [
+    require("daisyui"),
+    function ({ addVariant }) {
+      addVariant("sepia", ".sepia-mode &");
+    },
+  ],
 };

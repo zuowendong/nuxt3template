@@ -1,10 +1,9 @@
-import path from "path";
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   ssr: false,
   imports: {
-    autoImport: false,
+    autoImport: true,
   },
   devtools: {
     enabled: false,
@@ -29,7 +28,22 @@ export default defineNuxtConfig({
     '~/assets/css/fox-driver.scss'
   ],
 
-  modules: ["@nuxtjs/tailwindcss", "@vueuse/nuxt", "@vant/nuxt", "@nuxt/image"],
+  modules: [
+    "@nuxtjs/tailwindcss",
+    "@vueuse/nuxt",
+    "@vant/nuxt",
+    "@nuxt/image",
+    "@nuxtjs/color-mode"
+  ],
+
+  colorMode: {
+    // classSuffix: '',   // 类名后缀，默认值"-mode"，如果不加前缀和后缀，类名为 'dark'|'light'，此时 Nuxt DevTools 也会跟着切换颜色模式
+    preference: 'light',     // 默认偏好：'system' | 'light' | 'dark'
+    fallback: 'light',        // 回退模式
+    dataValue: 'theme',       // HTML 数据属性名
+    storage: 'localStorage',  // 存储方式：'localStorage' | 'cookie'
+    storageKey: 'nuxt-color-mode', // 存储键名
+  },
 
   plugins: ["~/plugins/aos.client.ts", "~/plugins/seo.ts", "~/plugins/i18n.ts"],
 

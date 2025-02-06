@@ -1,22 +1,22 @@
 <template>
-  <main class="w-full h-full flex flex-col items-center justify-center">
-    <h1
-      id="box-header"
-      class="text-[16px] xl:text-[22px] mb-[20px] xl:mb-[22px]"
-    >
+  <main class="w-full h-full flex flex-col items-center justify-center bg-primary">
+    <h1 id="box-header" class="text-primary text-[16px] xl:text-[22px] mb-[20px] xl:mb-[22px]">
       Box Width
     </h1>
-    <section
-      id="box-content"
-      ref="sectionRef"
-      class="w-[100px] h-[100px] md:w-[200px] md:h-[200px] xl:w-[300px] xl:h-[300px] text-[16px] md:text-[20px] xl:text-[24px] text-blue-500 md:text-red-500 xl:text-green-600 text-center leading-[100px] md:leading-[200px] xl:leading-[300px] border border-[#333]"
-      data-aos="fade-up"
-      data-aos-offset="0"
-      data-aos-duration="1500"
-      data-aos-delay="300"
-      data-aos-once="true"
-      @click="isShow = true"
-    >
+
+    <h1>Color mode: {{ $colorMode.value }}</h1>
+    <select v-model="$colorMode.preference">
+      <option value="system">System</option>
+      <option value="light">Light</option>
+      <option value="dark">Dark</option>
+      <option value="sepia">Sepia</option>
+    </select>
+
+
+    <section id="box-content" ref="sectionRef"
+      class="w-[100px] h-[100px] md:w-[200px] md:h-[200px] xl:w-[300px] xl:h-[300px] text-[16px] md:text-[20px] xl:text-[24px] text-primary border border-theme"
+      data-aos="fade-up" data-aos-offset="0" data-aos-duration="1500" data-aos-delay="300" data-aos-once="true"
+      @click="isShow = true">
       {{ sectionWidth }}
     </section>
 
@@ -29,6 +29,10 @@ import { onMounted, ref } from "vue";
 import { driver } from "driver.js";
 import { useRenderDriver } from "~/composables/useRenderDriver";
 
+const colorMode = useColorMode()
+
+console.log(colorMode.preference)
+
 const isShow = ref(false);
 
 const driverObj = driver({
@@ -37,7 +41,7 @@ const driverObj = driver({
   allowClose: false,
   showProgress: false,
   showButtons: ['next'],
-  nextBtnText: "下一步", 
+  nextBtnText: "下一步",
   doneBtnText: "完成",
   onPopoverRender: (popover, { config, state }) => {
     useRenderDriver(popover, {
@@ -46,7 +50,7 @@ const driverObj = driver({
       }
     })
   },
-  
+
   steps: [
     {
       element: "#box-header",
@@ -88,4 +92,33 @@ onMounted(() => {
   });
 });
 </script>
- 
+
+<style>
+body {
+  background-color: #fff;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.dark-mode body {
+  background-color: #091a28;
+  color: #ebf4f1;
+}
+
+.sepia-mode body {
+  background-color: #f1e7d0;
+  color: #433422;
+}
+
+/* 添加主题相关的样式类 */
+.text-primary {
+  @apply text-gray-900 dark:text-white sepia:text-[#433422];
+}
+
+.bg-primary {
+  @apply bg-white dark:bg-[#091a28] sepia:bg-[#f1e7d0];
+}
+
+.border-theme {
+  @apply border-gray-200 dark:border-gray-700 sepia:border-[#433422];
+}
+</style>
