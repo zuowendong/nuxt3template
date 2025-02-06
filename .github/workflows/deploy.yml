@@ -33,7 +33,7 @@ jobs:
           node-version: "20" # 使用适合的 Node.js 版本
 
       - name: Enable pnpm
-        run: corepack enable
+        run: npm install -g pnpm
 
       - name: Install Dependencies
         run: pnpm install # 或 yarn install，根据你的偏好选择
